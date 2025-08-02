@@ -6,12 +6,12 @@ const getProfile = (req, res) => {
   });
 };
 
-// const getLeaderboard = (req, res) => {
-//   res.json([
-//     { name: "Liansh", donations: 600 },
-//     { name: "Modupalli Harshini", donations: 500 },
-//     { name: "Samy", donations: 300 }
-//   ]);
-// };
+const getLeaderboard = (req, res) => {
+  res.json([
+    { name: "Liansh", donations: 600 },
+    { name: "Modupalli Harshini", donations: 500 },
+    { name: "Samy", donations: 300 }
+  ]);
+};
 
 module.exports = { getProfile, getLeaderboard };
