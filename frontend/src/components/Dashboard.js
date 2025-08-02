@@ -6,13 +6,35 @@ import '../styles.css';
 const Dashboard = () => {
   const [profile, setProfile] = useState(null);
 
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/intern/profile')
-      .then(res => setProfile(res.data))
-      .catch(err => console.error(err));
-  }, []);
+  // useEffect(() => {
+  //   axios.get('https://intern-portal-backend-muzv.onrender.com/api/intern/profile')
+  //     .then(res => setProfile(res.data))
+  //     .catch(err => console.error(err));
+  // }, []);
 
-  if (!profile) return <div className="container">Loading...</div>;
+  useEffect(() => {
+  axios.get('https://intern-portal-backend-muzv.onrender.com/api/intern/profile')
+    .then(res => {
+      console.log('✅ Profile data:', res.data);
+      setProfile(res.data);
+    })
+    .catch(err => {
+      console.error('❌ Error fetching profile:', err);
+    });
+}, []);
+
+
+  // if (!profile) return <div className="container">Loading...</div>;
+  if (!profile) {
+  return (
+    <div className="container">
+      <div className="card">
+        <p>⏳ Loading profile...</p>
+      </div>
+    </div>
+  );
+}
+
 
   return (
     <div className="container">

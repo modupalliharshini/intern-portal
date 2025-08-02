@@ -80,7 +80,7 @@ const Leaderboard = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/leaderboard')
+    fetch('https://intern-portal-backend-muzv.onrender.com/api/leaderboard')
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => console.error('Error fetching leaderboard:', err));
@@ -88,10 +88,11 @@ const Leaderboard = () => {
 
   return (
     <div className="container">
-        <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Leaderboard</h1>
+      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Leaderboard</h1>
       <div className="card">
         {data.length === 0 ? (
-          <p>No data available.</p>
+          // <p>No data available.</p>
+          <p>⏳ Fetching leaderboard data...</p>
         ) : (
           <table className="leaderboard-table">
             <thead>
@@ -116,3 +117,4 @@ const Leaderboard = () => {
 };
 
 export default Leaderboard;
+
